@@ -6,22 +6,15 @@
 
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="match_parent"
+        android:layout_width="243dp"
         android:layout_height="wrap_content"
         android:text="Taxis in your area"
         android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/test"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.27"
-        android:text="test" />
 
     <WebView
         android:id="@+id/webkit"
         android:layout_width="match_parent"
         android:layout_height="0px"
-        android:layout_weight="0.87" />
+        android:layout_weight="0.34" />
 
 </LinearLayout>
