@@ -9,12 +9,15 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.webkit.WebView;
+import android.webkit.WebView.HitTestResult;
+import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Search extends Activity {
 	private WebView browser;
-	private static final String url = "http://www.google.com/search?q=taxi";
+	private static final String searchURL = "http://www.google.com/search?q=taxi";
 	private String noInternetMessage = "The Internet is not currently available please try again later but don't go driving";
 
 	@Override
@@ -25,18 +28,20 @@ public class Search extends Activity {
 		checkAndSearch();
 	}
 
-	public void checkAndSearch()
-	{
+	//Checks if an Internet connection is available
+	public void checkAndSearch() {
 		ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
 
 		if (connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED || 
 				connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
 			//we are connected to a network
-			browser = (WebView)findViewById(R.id.webkit);
-			browser.loadUrl(url);
+
+			browser = (WebView)findViewById(R.id.webkit);	
+
 		}
 		else {
 			Toast.makeText(this, noInternetMessage, Toast.LENGTH_LONG).show();
 		}
 	}
+
 }
